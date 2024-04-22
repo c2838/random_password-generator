@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark mb-5" style="background-color: #646c70;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Random Password Generator</a>
+  </div>
+</nav>
+
+<div class="container">
+  <form class="px-3 py-3" style="background-color: #ffffff;">
+    <h4 class="title fw-bold">Random Password Generator</h4>
+    <hr style="color: #888888;">
+    <div class="PW row mb-3">
+      <label for="PWLength" class="col-sm-2 col-form-label me-2" style="width: 320px;">Password Length</label>
+      <div class="col-sm">
+        <input type="number" class="form-control" id="PWLength" min="4" max="16">
+        <p class="remind mt-1" style="font-size: 14px; color: #888888">Length is avilible between 4~16 words</p>
+      </div>
+    </div>
+    {{#each model}}
+    <div class="row mb-3">
+      <div class="col-sm-10 d-flex">
+        <p class="me-2" style="width: 320px;">{{this.describe}}</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="lowercaseCheck">
+          <label class="form-check-label" for="lowercaseCheck">
+            {{this.example}}
+          </label>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    <div class="exChar row mb-3">
+      <label for="excludeChar" class="col-sm-2 col-form-label me-2" style="width: 320px;">Exclude Characters</label>
+      <div class="col-sm">
+        <input type="text" class="form-control" id="excludeChar">
+        <p class="explain mt-1" style="font-size: 14px; color: #888888">These characters won't appear in generated password
+        </p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        Your password is:
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate Password</button>
+  </form>
+</div>
