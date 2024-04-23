@@ -5,7 +5,6 @@ const port = 3000
 // loading express-handlebars engine
 const { engine } = require('express-handlebars')
 const model = require('./public/javascripts/data')
-console.log(model)
 // use hbs & seting views route
 app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', 'hbs');

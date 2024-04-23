@@ -6,9 +6,9 @@
 
 <div class="container">
   <form class="px-3 py-3" style="background-color: #ffffff;">
-    <h4 class="title fw-bold">Random Password Generator</h4>
+    <h4 class="title fw-bold">Random Password Generator <i class="fa-solid fa-key"></i></h4>
     <hr style="color: #888888;">
-    <div class="PW row mb-3">
+    <div class="PW row mb-2">
       <label for="PWLength" class="col-sm-2 col-form-label me-2" style="width: 320px;">Password Length</label>
       <div class="col-sm">
         <input type="number" class="form-control" id="PWLength" min="4" max="16">
@@ -16,7 +16,7 @@
       </div>
     </div>
     {{#each model}}
-    <div class="row mb-3">
+    <div class="row mb-2">
       <div class="col-sm-10 d-flex">
         <p class="me-2" style="width: 320px;">{{this.describe}}</p>
         <div class="form-check">
@@ -28,7 +28,7 @@
       </div>
     </div>
     {{/each}}
-    <div class="exChar row mb-3">
+    <div class="exChar row mb-2">
       <label for="excludeChar" class="col-sm-2 col-form-label me-2" style="width: 320px;">Exclude Characters</label>
       <div class="col-sm">
         <input type="text" class="form-control" id="excludeChar">
@@ -43,4 +43,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Generate Password</button>
   </form>
+  <div class="card-footer text-end" style="background-color: #FCFCFC;">
+    <p class="text-muted mb-0" style="font-size: 16px;">idea is inspired by <span style="color: #2828FF;">strong random password</span></p>
+  </div>
 </div>
