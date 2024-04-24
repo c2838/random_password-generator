@@ -5,42 +5,77 @@
 </nav>
 
 <div class="container">
-  <form class="px-3 py-3" style="background-color: #ffffff;">
+  <form class="px-3 py-3" method="post" style="background-color: #ffffff;" novalidate>
     <h4 class="title fw-bold">Random Password Generator <i class="fa-solid fa-key"></i></h4>
     <hr style="color: #888888;">
     <div class="PW row mb-2">
-      <label for="PWLength" class="col-sm-2 col-form-label me-2" style="width: 320px;">Password Length</label>
+      <label for="PW_length" class="col-sm-2 col-form-label me-2" style="width: 320px;">Password Length</label>
       <div class="col-sm">
-        <input type="number" class="form-control" id="PWLength" min="4" max="16">
+        <input type="number" class="form-control" id="PW_length" name="PW_length" min="4" max="16">
         <p class="remind mt-1" style="font-size: 14px; color: #888888">Length is avilible between 4~16 words</p>
       </div>
     </div>
-    {{#each model}}
     <div class="row mb-2">
       <div class="col-sm-10 d-flex">
-        <p class="me-2" style="width: 320px;">{{this.describe}}</p>
+        <p class="me-2" style="width: 320px;">Include Lowercase Characters</p>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="lowercaseCheck">
+          <input class="form-check-input" type="checkbox" id="lowercase" name="lowercase">
           <label class="form-check-label" for="lowercaseCheck">
-            {{this.example}}
+            (e.g. abcdefg)
           </label>
         </div>
       </div>
     </div>
-    {{/each}}
+    <div class="row mb-2">
+      <div class="col-sm-10 d-flex">
+        <p class="me-2" style="width: 320px;">Include Uppercase Characters</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="uppercase" name="uppercase">
+          <label class="form-check-label" for="lowercaseCheck">
+            (e.g. ABCDEFG)
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-sm-10 d-flex">
+        <p class="me-2" style="width: 320px;">Include Numbers</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="numbers" name="numbers">
+          <label class="form-check-label" for="lowercaseCheck">
+            (e.g. 123456)
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-sm-10 d-flex">
+        <p class="me-2" style="width: 320px;">Include Symbols</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="symbols" name="symbols">
+          <label class="form-check-label" for="lowercaseCheck">
+            (e.g. @#$%)
+          </label>
+        </div>
+      </div>
+    </div>
     <div class="exChar row mb-2">
       <label for="excludeChar" class="col-sm-2 col-form-label me-2" style="width: 320px;">Exclude Characters</label>
       <div class="col-sm">
-        <input type="text" class="form-control" id="excludeChar">
+        <input type="text" class="form-control" id="excludeChars" name="excludeChars">
         <p class="explain mt-1" style="font-size: 14px; color: #888888">These characters won't appear in generated password
         </p>
       </div>
     </div>
-    <div class="card mb-3">
-      <div class="card-body">
-        Your password is:
+    {{#if password}}
+    <div class="card mb-3 border-0">
+      <div class="passwordColumn card-body" style="background-color: #ECECFF;">
+        Your password is: <span style="color: red;">{{password}}</span>
+        <div class="valid-feeback"></div>
+        <div class="invalid-feeback"></div>
       </div>
     </div>
+    {{/if}}
     <button type="submit" class="btn btn-primary">Generate Password</button>
   </form>
   <div class="card-footer text-end" style="background-color: #FCFCFC;">
