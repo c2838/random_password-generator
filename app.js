@@ -4,7 +4,7 @@ const app = express()
 const port = 3000
 // loading express-handlebars engine
 const { engine } = require('express-handlebars')
-
+// loading password generator function
 const randomPassword = require('./utilites/randomPassword')
 // use hbs & seting views route
 app.engine('.hbs', engine({extname: '.hbs'}));
@@ -24,8 +24,11 @@ app.get('/randomPassword', (req, res) => {
 })
 
 app.post('/randomPassword', (req,res) => {
+  // get the data from frontend
   const options = req.body
+  // get the random password
   const password = randomPassword(options)
+  // send views to frontend
   res.render('index', { password, options })
 })
 
