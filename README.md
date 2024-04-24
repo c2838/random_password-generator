@@ -1,4 +1,4 @@
-# 短網址產生器
+# Random Password Generator
 此專案為繳交 ALPHA Camp Dev C3 挑戰 所製作。
 運用 Node.js 與 Express 建立本機伺服器，並套用 express-handlbars 作為樣板，伺服器運行期間可產生4~16碼的隨機亂數密碼(包含大小寫英數字、數字及符號)。
 
