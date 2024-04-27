@@ -43,6 +43,14 @@ function randomPassword(options) {
   if (!chars.length) {
     return 'There is no valible characters in your selection!'
   }
+
+  if (options.PW_length < 4 || !options.PW_length) {
+    return 'The password\'s length must bigger than 4!'
+  }
+
+  if (options.PW_length > 16) {
+    return 'The password\'s length must smaller than 16!'
+  }
   
   return password(chars, options)
 
